@@ -13,10 +13,10 @@ int main() {
         getline(std::cin, input);
         if (!input.empty()) {
             std::getline(std::cin, input);
-            std::cout << input << ": command not found\n";
+            std::cout << input << ": command not found" << std::endl;
         }
-        std::cout << std::unitbuf;
-        std::cerr << std::unitbuf;
+        // std::cout << std::unitbuf;
+        // std::cerr << std::unitbuf;
     }
 
 }
