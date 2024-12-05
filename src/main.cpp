@@ -12,6 +12,6 @@ int main() {
    std::getline(std::cin, input);
 
     if (!input.empty()) {
-        printf(" %s: command not found\n", input.c_str());
+        printf("%s: command not found\n", input.c_str());
     }
 }
