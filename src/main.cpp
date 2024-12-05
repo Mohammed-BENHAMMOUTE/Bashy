@@ -10,4 +10,8 @@ int main() {
 
    std::string input;
    std::getline(std::cin, input);
+
+    if (!input.empty()) {
+        std::cout  << input << ": command not found";
+    }
 }
