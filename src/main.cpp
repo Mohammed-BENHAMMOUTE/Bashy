@@ -32,6 +32,13 @@ int main() {
         pair<string, string> processedstring = processString(input);
         if (processedstring.first == "echo") {
             cout << processedstring.second<<endl;
+        }else if (processedstring.first == "type") {
+            pair<string, string> ps = processString(processedstring.second);
+            if (ps.first == "echo" || ps.first == "exit" || ps.first == "type") {
+                cout << ps.first << " is a shell builtin" <<endl;
+            }else {
+                std::cout << processedstring.second << ": not found" << std::endl;
+            }
         }else if (!input.empty()) {
             std::cout << input << ": command not found" << std::endl;
         }
