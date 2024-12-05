@@ -12,6 +12,7 @@ int main() {
    std::getline(std::cin, input);
 
     if (!input.empty()) {
-        std::cout  << input << ": command not found" <<std::endl;
+        std::cout  << input << ": command not found\n";
+
     }
 }
