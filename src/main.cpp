@@ -66,19 +66,22 @@ int main() {
         if (processedstring.first == "echo") {
             cout << processedstring.second << endl;
         } else if (processedstring.first == "type") {
-            pair<string, string> ps = processString(processedstring.second);
-            if (!ps.first.empty() && ps.second.empty()) {
-                bool found = false;
-                for (const string& directorie : v) {
-                    // cout << "handling the directorie case: " << directorie << endl;
-                    if (findFile(directorie, ps.first)) {
-                        cout << ps.first << " is " << directorie << "/" << ps.first << endl;
-                        found = true;
-                        break;
+            if ( processedstring.second =="type" || processedstring.second == "exit" || processedstring.second == "echo") {
+                cout << processedstring.second << " is a shell builtin\n";
+            }else {
+                pair<string, string> ps = processString(processedstring.second);
+                if (!ps.first.empty() && ps.second.empty()) {
+                    bool found = false;
+                    for (const string& directorie : v) {
+                        if (findFile(directorie, ps.first)) {
+                            cout << ps.first << " is " << directorie << "/" << ps.first << endl;
+                            found = true;
+                            break;
+                        }
                     }
-                }
-                if (!found) {
-                    cout << ps.first << ": not found" << std::endl;
+                    if (!found) {
+                        cout << ps.first << ": not found" << std::endl;
+                    }
                 }
             }
         } else if (!input.empty()) {
